@@ -1,0 +1,129 @@
+span.title {
+    font-size: 30px;
+    font-weight: 500;
+    display: block;
+    text-align: center;
+}
+
+main{
+    align-items :start !important;
+}
+
+main div:first-child {
+    width: 100%;
+}
+
+.p-carousel .p-carousel-indicators .p-carousel-indicator button {
+    background-color: #d1d5db;
+    width: 2rem;
+    height: 0.5rem;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+    border-radius: 0;
+}
+
+.p-carousel .p-carousel-indicators .p-carousel-indicator {
+    margin-right: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
+    background-color: #4d357a;
+}
+
+.p-carousel-item {
+    margin: 0 5px;
+    border: 1px solid #d1d5db;
+}
+
+.p-carousel-item:first-child {
+    margin: 0 5px 0 0;
+}
+
+.p-carousel-item:last-child {
+    margin: 0 0 0 5px;
+}
+
+.p-carousel-item .p-image, .p-carousel-item img {
+    width: 100%;
+}
+
+.p-image-preview-indicator {
+    background-color: rgba(0, 12, 17, 0.8);
+    color: #f8f9fa;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.p-image-mask {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.p-image-toolbar {
+    padding: 1rem;
+}
+
+.p-image-toolbar .p-link{
+    color:white;
+    font-size: 5rem;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    padding: 0 0.5rem;
+}
+
+.p-image-toolbar .p-link:hover{
+    background-color:red;
+}
+
+.p-image-action.p-link .p-icon {
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+.p-tabmenu .p-tabmenu-nav {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-width: 0 0 2px 0;
+}
+
+.gap-2 {
+    gap: 0.5rem !important;
+}
+
+ .align-items-center {
+     align-items: center !important;
+ }
+
+ .flex {
+     display: flex !important;
+ }
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
+    background: #ffffff;
+    border-color: #4d357a;
+    color: #4d357a;
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+    border: solid #e5e7eb;
+    border-width: 0 0 2px 0;
+    border-color: transparent transparent #e5e7eb transparent;
+    background: #ffffff;
+    color: #6b7280;
+    padding: 1.25rem;
+    font-weight: 700;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    transition: box-shadow 0.2s;
+    margin: 0 0 -2px 0;
+    height: calc(100% + 2px);
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}

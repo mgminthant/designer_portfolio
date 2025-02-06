@@ -1,0 +1,178 @@
+@import url('https://unpkg.com/normalize.css') layer(normalize);
+
+.about-container {
+    vertical-align: middle;
+    margin: 8rem auto;
+    display: flex;
+}
+
+.about-container b{
+    font-size: 30px;
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.about-container > *{
+    flex: 1;
+}
+
+.about-container span{
+    font-size: 30px;
+    font-weight: 500;
+    display: block;
+    text-align: center;
+}
+
+.about-container p{
+    line-height: 40px;
+    font-size: 20px;
+}
+
+.skill-icon{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+:root {
+    --accent: black;
+    --canvas: color-mix(in lch, canvas, canvasText 1%);
+    --border: color-mix(in lch, canvas, canvasText 10%);
+    --text: color-mix(in lch, canvasText, canvas 25%);
+    --border-radius: 24;
+    --border-width: 3;
+    --trail-size: 25;
+}
+aside {
+    --font-level: 1;
+    line-height: 1.5;
+    container-type: inline-size;
+    position: relative;
+}
+
+.border {
+    position: absolute;
+    inset: 0;
+    clip-path: inset(0 0 0 0 round calc(var(--border-radius) * 1px));
+    border-radius: calc(var(--border-radius) * 1px);
+    background: var(--border);
+    z-index: -1;
+    border: 0;
+    container-type: inline-size;
+}
+
+.trail {
+    width: calc(var(--trail-size) * 1cqmin);
+    aspect-ratio: 2 / 1;
+    position: absolute;
+    background: radial-gradient(
+            100% 100% at right,
+            var(--accent, red),
+            transparent 50%
+    );
+    offset-path: border-box;
+    offset-anchor: 100% 50%;
+    animation: journey var(--speed, 6s) infinite linear;
+}
+
+@container(width > 600px) {
+    .trail {
+        --speed: 12s;
+    }
+}
+
+@keyframes journey {
+    to {
+        offset-distance: 100%;
+    }
+}
+
+.content {
+    background: linear-gradient(var(--canvas), var(--canvas)) padding-box,
+    transparent;
+    border: calc(var(--border-width) * 1px) solid transparent;
+    border-radius: calc(var(--border-radius) * 1px);
+    padding: 25px 10px;
+}
+
+/* 3D stuff */
+[data-explode='true'] aside {
+    transform: scale(0.75) rotateX(-24deg) rotateY(30deg);
+}
+
+:root {
+    --t: 1s;
+    --d: 1s;
+}
+[data-explode='true'] aside {
+    transition: transform var(--t);
+}
+
+[data-explode='true'] .border {
+    transition: clip-path var(--t) calc(var(--d) * 2);
+}
+[data-explode='true'] .border {
+    clip-path: inset(
+            -100% -100% -100% -100% round calc(var(--border-radius) * 1px)
+    );
+}
+
+main * {
+    transform-style: preserve-3d;
+}
+
+[data-explode='true'] .content {
+    transition: transform var(--t) calc(var(--d) * 1),
+    opacity calc(var(--t) * 0.5) calc(var(--d) * 1.5);
+}
+
+[data-explode='true'] .content {
+    transform: translate3d(0, 0, 400px);
+    opacity: 0;
+}
+
+.border {
+    transition: clip-path var(--t);
+}
+
+aside {
+    transition: transform var(--t) calc(var(--d) * 2);
+}
+
+.content {
+    transition: transform var(--t) calc(var(--d) * 1),
+    opacity calc(var(--t) * 0.5) calc(var(--d) * 0.5);
+}
+
+
+:root {
+    --font-size-min: 17;
+    --font-size-max: 20;
+    --font-ratio-min: 1.2;
+    --font-ratio-max: 1.33;
+    --font-width-min: 320;
+    --font-width-max: 1500;
+}
+
+:where(.fluid) {
+    --fluid-min: calc(
+            var(--font-size-min) * pow(var(--font-ratio-min), var(--font-level, 0))
+    );
+    --fluid-max: calc(
+            var(--font-size-max) * pow(var(--font-ratio-max), var(--font-level, 0))
+    );
+    --fluid-preferred: calc(
+            (var(--fluid-max) - var(--fluid-min)) /
+            (var(--font-width-max) - var(--font-width-min))
+    );
+    --fluid-type: clamp(
+            (var(--fluid-min) / 16) * 1rem,
+            ((var(--fluid-min) / 16) * 1rem) -
+            (((var(--fluid-preferred) * var(--font-width-min)) / 16) * 1rem) +
+            (var(--fluid-preferred) * var(--variable-unit, 100vi)),
+            (var(--fluid-max) / 16) * 1rem
+    );
+    font-size: var(--fluid-type);
+}
+
+

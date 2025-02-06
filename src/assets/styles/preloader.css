@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+.preloader {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader-text h1 {
+    font-family: "Caveat", serif;
+}
