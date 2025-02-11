@@ -1,0 +1,24 @@
+:root[data-theme="light"] {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --nav-background: #ffffff;
+  --border-color: #e5e7eb;
+}
+
+:root[data-theme="dark"] {
+  --background-color: #1a1a1a;
+  --text-color: #ffffff;
+  --nav-background: #242424;
+  --card-background: #242424;
+  --border-color: #404040;
+  --input-background: #f0f0f0;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  font-family: "Kanit", serif;
+  font-style: normal;
+}
+

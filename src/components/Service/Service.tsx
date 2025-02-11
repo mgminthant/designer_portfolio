@@ -7,7 +7,10 @@ export default function Service(){
         <div className={'service_container'}>
             {service.map((item,index)=> (
                 <div className="media-object" key={index}>
+                    <div className="service">
                     <span className="service_title">{item.title}</span>
+                    <img src={item.icon} alt="" />
+                    </div>
                     <p>{item.description}</p>
                 </div>
             ))}

@@ -260,11 +260,16 @@
   }
 }
 
-.scroll-indicator img {
+.scroll-indicator svg {
   display: block;
-  width: 4rem;
-  height: 4rem;
+  margin: 0 auto;
   animation: bounce 1s ease infinite;
+  fill: var(--text-color);
+}
+
+.scroll-icon {
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes bounce {

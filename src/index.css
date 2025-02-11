@@ -6,14 +6,13 @@
   outline: none;
 }
 
-body{
-  background-color: #fff;
-  margin: 0 auto;
-  font-family: "Kanit", serif;
-  font-style: normal;
-}
-
 body .main-container{
   max-width: 90%;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  body .main-container {
+    max-width: 95%;
+  }
 }

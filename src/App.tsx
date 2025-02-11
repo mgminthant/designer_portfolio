@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import About from "./components/About/About.tsx";
 import NavBar from "./components/Navbar/NavBar.tsx";
 import Section from "./components/Section/Section.tsx";
@@ -7,41 +9,61 @@ import Service from "./components/Service/Service.tsx";
 import Contact from "./components/Contact/Contact.tsx";
 import Footer from "./components/Footer/Footer.tsx";
 import Preloader from "./components/Preloader/Preloader.tsx";
-import { useState, useEffect } from "react";
+import ThemeContext from "./contexts/StyleContext.ts";
+import "./assets/styles/themes.css";
+
 function App() {
   const [preload, setPreload] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
+  const [theme, setTheme] = useState("light");
+  
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setPreload(false);
-    }, 2500);
+    const startTime = Date.now();
 
     const handleLoad = () => {
-      setIsLoading(true);
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(2500 - elapsedTime, 0);
+
+      setTimeout(() => {
+        setPreload(false);
+      }, remainingTime);
     };
 
-    window.addEventListener("load", handleLoad);
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+    }
 
     return () => {
-      clearTimeout(timer);
       window.removeEventListener("load", handleLoad);
     };
   }, []);
-  return preload && !isLoading ? (
-    <Preloader />
-  ) : (
-    <>
-      <NavBar />
-      <div className="main-container">
-        <Section />
-        <About />
-        <Work />
-        <GalleryComp />
-        <Service />
-        <Contact />
-        <Footer />
-      </div>
-    </>
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
+  return (
+    <div>
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        {preload ? (
+          <Preloader />
+        ) : (
+          <>
+            <NavBar />
+            <div className="main-container">
+              <Section />
+              <About />
+              <Work />
+              <GalleryComp />
+              <Service />
+              <Contact />
+              <Footer />
+            </div>
+          </>
+        )}
+      </ThemeContext.Provider>
+    </div>
   );
 }
 

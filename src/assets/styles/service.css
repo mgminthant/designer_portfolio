@@ -1,7 +1,6 @@
 .media-object {
     --border-width: 2px;
     --radius: 20px;
-
     position: relative;
     border-radius: var(--radius);
     border: var(--border-width) solid transparent;
@@ -68,4 +67,14 @@
 .media-object p{
     font-size: 1.2rem;
     margin-top: 1rem;
+}
+
+.service{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.service img{
+    width: 1.5rem;
+    height: 1.5;
 }
